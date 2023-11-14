@@ -1,0 +1,94 @@
+import os.path
+import random
+scenarioPath = 'scenario.txt'
+
+
+inScenarioFile = open(scenarioPath, 'r')
+readScenario = inScenarioFile.read()
+print(readScenario)
+
+settingOffPath = 'settingoff.txt'
+kitchenPath = 'kitchen.txt'
+bedroomPath = 'bedroom.txt'
+potionProtectionPath = 'potionofprotection.txt'
+openroomPath = 'openroom.txt'
+basementPath = 'basement.txt'
+
+playerAlive = True
+gyrlaAlive = True
+
+
+playerInputInteger = int(input('Do you want to (1) open the door or (2) flee?'))
+
+
+if playerInputInteger == 1:
+    print('You have opened the door to the witches hut, As you peer into the windows, you see the dark interior with a messy table, and two doorways that lead futher into the witches hut the one on the left is door 3 the one on the right is door 4, there is no windows in sight and all you see is darkness.')
+    playerInput = int(input('enter (1) to open the door to the kitchen or enter (2) and that will open the door to the bedroom or enter (3) to serch the messy table.'))
+
+if playerInput == 1:
+    inKitchenPath = open(kitchenPath,'r')
+    readKitchen = inKitchenPath.read()
+    print(readKitchen)
+    
+    
+    playerActionKitchen = int(input('Do ou want to (1), search (2) exit back to 2, or (3) go down the siars'))
+
+    if playerActionKitchen == 1:
+                          print('searching... serching... NOTHING FOUND')
+    if playerActionKitchen == 2:
+        inOpenroomPath = open(openroomPath,'r')
+        readOpenroom = inOpenroomPath.read()
+        print(readOpenroom)
+    if playerActionKitchen == 3:
+        inBasementPath = open(basementPath,'r')
+        readBasement = inBasementPath.read()
+        print(readBasement)
+
+        battleActionInteger = int(input('Do you want to 1: attack, 2: persuade, 3: consider?'))
+
+
+        if battleActionInteger == 1:
+            playerRoll = random.randrange(20)+1
+            if playerRoll == 20:
+                print('you have killied the witch')
+            if playerRoll >= 12:
+                print('You have hit the witch')
+            else:
+                print('You missed the witch')
+                
+        if battleActionInteger == 2:
+            playerRoll = random.randrange(20)+1
+            grylaRoll = random.randrange(20)+1
+            if playerRoll > grylaRoll:
+                print('the witch has dissappeared')
+            
+#        if battleActionInteger == 3:
+#            print('consider')
+
+    
+   
+
+playerRoll = random.randrange(20)+1
+grylaRoll = random.randrange(20)+1
+        
+
+if playerInput == 2:
+    inBedroomPath = open(bedroomPath, 'r')
+    readBedroom = inBedroomPath.read()
+    print(readBedroom)
+    
+if playerInput == 3:
+    print('You have search the table')
+
+
+
+    
+         
+    
+if playerInputInteger == 2:
+    print('you have feld from the hut')
+    print('game over :(')
+
+#missing is getting from room to room
+#missing is checking if the witch is still alive
+#https://github.com/Bowden01/game.git
